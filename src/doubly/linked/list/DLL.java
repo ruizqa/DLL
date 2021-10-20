@@ -98,6 +98,83 @@ public class DLL {
     	
     }
     
+    public void insertAt (Node newNode, int index) {
+    	
+    	if (this.head == null) {
+    		this.push(newNode);
+    	}
+    	
+    	Node current = this.head;
+        int counter=0;
+        
+        while(counter < index) {
+            current = current.next;
+            counter +=1;
+        }
+    	
+        if (current != null) {
+        newNode.next= current;
+        newNode.previous = current.previous;
+        newNode.previous.next = newNode;
+        current.previous = newNode;
+        }
+        
+        else {
+        	this.push(newNode);
+        }
+    	
+    	
+    }
+    
+    public void removeAt(int index) {
+    	
+    	if (this.head == null) {
+    		return;
+    	}
+    	
+    	if (index ==0) {
+    		this.pop();
+    	}
+    	
+    	Node current = this.head;
+        int counter=0;
+        
+        while(counter < index) {
+            current = current.next;
+            counter +=1;
+        }
+    	
+        if (current != null) {
+        current.previous.next = current.next;
+        current.next.previous = current.previous;
+        	}
+        
+        else {
+        	return;
+        }
+    	
+    	
+    }
+    
+    public boolean isPalindrome() {
+    	Node runnerF = this.head;
+    	Node runnerR = this.tail;
+    	
+    	
+    	while (runnerF != null & runnerR != null) {
+    		if (runnerF.value != runnerR.value) {
+    			return false;
+    		}
+    		runnerF= runnerF.next;
+    		runnerR=runnerR.previous;
+    	}
+    	return true;
+    	
+    	
+    }
+    
+    
+    
     
     
     

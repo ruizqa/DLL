@@ -24,6 +24,11 @@ public class DLLTest {
         System.out.println(n.value);
         System.out.println(dll.contains(50));
         System.out.println(dll.size());
+        dll.insertAt(n, 1);
+        dll.printValuesForward();
+        dll.removeAt(2);
+        dll.printValuesForward();
+        System.out.println(dll.isPalindrome());
         
     }
 }
